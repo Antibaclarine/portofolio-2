@@ -1,0 +1,34 @@
+// HTML
+<div id="text-container"></div>
+
+// CSS
+<style>
+  .word {
+    display: inline-block;
+    opacity: 0;
+    animation: wordAnimation 0.5s ease-in-out forwards;
+  }
+
+  @keyframes wordAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+// JavaScript
+<script>
+  const words = ['Hello', 'World', 'Automation', 'Code'];
+  const container = document.getElementById('text-container');
+
+  words.forEach((word, index) => {
+    const wordElement = document.createElement('span');
+    wordElement.classList.add('word');
+    wordElement.textContent = word;
+    wordElement.style.animationDelay = `${index * 0.5}s`;
+    container.appendChild(wordElement);
+  });
+</script>
